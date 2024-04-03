@@ -8,14 +8,13 @@
 
 html {
 	font-family: Quicksand, Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-	background: #333;
-	color: whitesmoke;
+	background-color: white;
+	color: #000;
 }
 
 body {
 	min-height: 100vh;
 	font-size: 1.5rem;
-	padding: 0 10% 10%;
 }
 
 input,
@@ -26,9 +25,21 @@ select {
 	margin-bottom: 1em;
 }
 
+button {
+	border-radius: 3px;
+	padding: 5px 5px;
+	outline: none;
+	border: 1px solid #595959;
+}
+
+button:hover:not([disabled]) {
+	opacity: .7;
+	cursor: pointer;
+}
+
 main {
 	max-width: 500px;
-	margin: auto;
+	margin: 50px auto;
 }
 
 section {
@@ -36,14 +47,18 @@ section {
 }
 
 article {
-	margin: 0.5em 0.5em 0.5em 0;
-	border: 1px solid whitesmoke;
+	margin: 0.5em;
+	border: 1px solid #000;
 	border-radius: 10px;
 	padding: 1em;
 }
 
 h1 {
 	font-size: 3.5rem;
+}
+
+h2 {
+	margin-bottom: 1rem;
 }
 
 p {
@@ -58,15 +73,19 @@ form {
 	flex-direction: column;
 }
 
-.postcredit {
-	font-size: 1rem;
+textarea {
+	height: 200px;
+	padding: 5px 10px;
 }
 
-.reactionbutton {
-	margin: 0 0.25em 0 0;
-	background: transparent;
-	border: none;
-	color: whitesmoke;
-	font-size: 1rem;
-	cursor: pointer;
+a:link {
+	color: purple;
+}
+
+a:hover {
+	opacity: .7;
+}
+
+a:visited {
+	color: purple;
 }

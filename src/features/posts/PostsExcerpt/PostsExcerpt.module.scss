@@ -1,0 +1,18 @@
+.title {
+	word-break: break-all;
+	text-transform: capitalize;
+}
+
+.excerptBody {
+	font-style: italic;
+}
+
+.postCredit {
+	font-size: 1rem;
+}
+
+.image {
+	width: 100%;
+	max-height: 300px;
+	object-fit: cover;
+}

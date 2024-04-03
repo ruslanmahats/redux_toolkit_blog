@@ -1,0 +1,12 @@
+.deleteButton {
+	background-color: palevioletred;
+	color: white;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+.warning {
+	color: orangered;
+	font-size: 16px;
+}

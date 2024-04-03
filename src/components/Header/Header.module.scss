@@ -1,0 +1,40 @@
+$color: #fff;
+
+.logoText a {
+	text-decoration: none;
+	color: white;
+	font-size: 50px;
+	font-weight: bold;
+}
+
+.navigation {
+	display: flex;
+	align-items: center;
+	column-gap: 20px;
+	& a {
+		transition: all 0.3s ease-in-out;
+		text-decoration: none;
+		color: $color;
+		&:hover {
+			opacity: 1;
+			text-decoration: underline;
+		}
+	}
+	& a.active {
+		text-decoration: underline;
+		color: #fff;
+	}
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 15px 30px;
+	position: sticky;
+	top: 0px;
+	bottom: 0px;
+	background-color: purple;
+	color: white;
+}

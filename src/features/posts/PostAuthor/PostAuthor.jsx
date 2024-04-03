@@ -1,14 +1,13 @@
 import { useSelector } from 'react-redux';
-import styles from './PostAuthor.module.scss';
-import { selectAllUsers } from '../../users/usersSlice';
+import { usersSelector } from '../../users/usersSlice';
 
 const PostAuthor = ({ userId }) => {
-	const users = useSelector(selectAllUsers);
+	const users = useSelector(usersSelector.users);
 
 	const author = users.find((user) => user.id === userId);
 
 	return (
-		<span className={styles.postauthor}>by {author ? author.name : 'Unknown author'}</span>
+		<span> by {author ? author.name : 'Unknown author'}</span>
 	);
 };
 

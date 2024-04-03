@@ -1,33 +1,32 @@
 import { useSelector } from 'react-redux';
 import styles from './PostsList.module.scss';
-import { selectAllPosts } from '../postsSlice';
-import PostAuthor from '../PostAuthor/PostAuthor';
-import TimeAgo from '../TimeAgo/TimeAgo';
-import ReactionButtons from '../ReactionButtons/ReactionButtons';
+import { getPosts } from '../postsSlice';
+
+import PostsExcerpt from '../PostsExcerpt/PostsExcerpt';
 
 const PostsList = () => {
-	const posts = useSelector(selectAllPosts);
 
-	const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
+	const posts = useSelector(getPosts.posts);
+	const error = useSelector(getPosts.error);
+	const status = useSelector(getPosts.status);
 
-	const renderedPosts = orderedPosts.map(post => {
-		return (
-			<article key={post.id}>
-				<h3>{post.title}</h3>
-				<p>{post.content.substring(0, 100)}</p>
-				<p className='postcredit'>
-					<PostAuthor userId={post.userId} />
-					<TimeAgo timestamp={post.date} />
-				</p>
-				<ReactionButtons post={post} />
-			</article>
-		)
-	});
+	let content;
+	if (status === 'loading') {
+		content = <p>Loading...</p>;
+	} else if (status === 'succeeded') {
+		const orderedPosts = posts.slice().sort((a, b) => b.date.localeCompare(a.date));
+		content = orderedPosts.map((post, index) => (
+			<PostsExcerpt key={post.id} post={post}
+				imageUrl={`https://picsum.photos/id/${post.id + 10}/300/150`} />
+		));
+
+	} else if (status === 'failed') {
+		content = <p>{error}</p>;
+	}
 
 	return (
 		<section className={styles.postslist}>
-			<h2>Posts</h2>
-			{renderedPosts}
+			{content}
 		</section>
 	);
 };
